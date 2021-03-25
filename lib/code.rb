@@ -11,4 +11,9 @@ class Code
     pegs.all?{|peg| POSSIBLE_PEGS.include?(peg.upcase)}
   end
 
+  def initialize(pegs)
+    raise Error unless Code.valid_pegs?(pegs)
+    @pegs = pegs.map(&:upcase)
+  end
+
 end
