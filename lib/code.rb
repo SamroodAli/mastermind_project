@@ -23,4 +23,8 @@ class Code
     Code.new(random_pegs)
   end
 
+  def self.from_string(string)
+    Code.new(string.split(""))
+  end
+
 end
