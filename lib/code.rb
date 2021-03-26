@@ -35,4 +35,28 @@ class Code
     @pegs.length
   end
 
+  def num_exact_matches(code)
+    count = 0
+    code.pegs.each_with_index do |ele,idx|
+      if ele == @pegs[idx]
+        count += 1
+      end
+    end
+    count
+  end  
+
+  def num_near_matches(code)
+    count = 0
+    code.pegs.each_with_index do |ele, idx|
+      if ele != @pegs[idx] && @pegs.include?(ele)
+        count += 1
+      end
+    end
+    count
+  end
+
+  def ==(code)
+    self.pegs == code.pegs
+  end
+
 end
